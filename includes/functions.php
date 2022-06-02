@@ -5,7 +5,6 @@
  * @param string $date = any date string
  * @return string = nice-looking date
  */
-
 function convert_date( $date = 'today' ){
   $output = new DateTime( $date );
   return $output->format( 'F j, Y' );
@@ -44,4 +43,27 @@ function time_ago($datetime, $full = false) {
 
   if (!$full) $string = array_slice($string, 0, 1);
   return $string ? implode(', ', $string) . ' ago' : 'just now';
+}
+
+/**
+ * Count approved comments on any post
+ * @param int $id = any post id
+ * @return int = number of comments
+ */
+function count_comments( $id ){
+  // use the existing database connection
+  global $DB;
+  $result = $DB->prepare( 'SELECT COUNT(*) AS total
+                FROM comments
+                WHERE post_id = ?
+                AND is_approved = 1' );
+  // run it and bind the data to the placeholder
+  $result->execute( array( $id ) );
+  // check it
+  if( $result->rowCount() ){
+    // loop it
+    while( $row = $result->fetch() ){
+      return $row['total'];
+    }
+  }
 }

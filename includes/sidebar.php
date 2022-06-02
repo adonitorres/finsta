@@ -20,59 +20,43 @@
     } ?>
       </ul>
     </section>
-
+    
     <?php // get up to 10 categories
-    $result = $DB->prepare( 'SELECT *
+    $result = $DB->prepare( 'SELECT name
                               FROM categories
                               LIMIT 10' );
     $result->execute();
     // check if any rows were found
-    if( $result->rowCount() >= 1 ){
-      // loop it
-      echo "<h2 class='categories'>Categories</h2>";
-      while( $row = $result->fetch() ){
-        // make variables from the array keys
-        extract($row);
-    ?>
-
+    if( $result->rowCount() >= 1 ){ ?>
     <section class="categories">
+      <h2 class="categories">Categories</h2>
       <ul>
-        <li><?php echo $name; ?></li>
+        <?php
+        while( $row = $result->fetch() ){
+          extract($row); ?>
+          <li><?php echo $name; ?></li>
+        <?php } // end while
+    } ?>
       </ul>
     </section>
-
-    <?php
-      } // end while
-    }else{
-      // no rows found from our query
-      echo 'No categories found';
-    } ?>
-
-    <?php // get up to 10 tags
-    $result = $DB->prepare( 'SELECT *
+    
+    <?php // get up to 20 tags
+    $result = $DB->prepare( 'SELECT name
                               FROM tags
-                              LIMIT 10' );
+                              LIMIT 20' );
     $result->execute();
     // check if any rows were found
-    if( $result->rowCount() >= 1 ){
-      // loop it
-      echo "<h2 class='tags'>Tags</h2>";
-      while( $row = $result->fetch() ){
-        // make variables from the array keys
-        extract($row);
-    ?>
-
+    if( $result->rowCount() >= 1 ){ ?>
     <section class="tags">
+      <h2 class="tags">Tags</h2>
       <ul>
-        <li><?php echo $name; ?></li>
+        <?php
+        while( $row = $result->fetch() ){
+          extract($row); ?>
+          <li><?php echo $name; ?></li>
+        <?php } // end while
+    } ?>
       </ul>
     </section>
-
-    <?php
-      } // end while
-    }else{
-      // no rows found from our query
-      echo 'No tags found';
-    } ?>
 
   </aside>

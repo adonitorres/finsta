@@ -24,6 +24,7 @@ require('includes/header.php');
         <img src="<?php echo $image; ?>" alt="<?php echo $title; ?>">
         <h2><?php echo $title; ?></h2>
         <p><?php echo $body; ?></p>
+        <span class="comment-count"><?php echo count_comments( $post_id ); ?></span>
         <span class="date"><?php echo time_ago( $date ); ?></span>
       </div>
 

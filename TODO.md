@@ -10,3 +10,4 @@ DONE
 ====
 * build the basic home page
 * chunk down the header, footer, sidebar
+* make function to count comments on each post

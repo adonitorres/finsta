@@ -267,13 +267,16 @@ h3{
 	list-style-type: none;
 	padding:0;
 }
+.sidebar .users ul {
+	display: flex;
+	gap: .5rem;
+}
 .sidebar section{
 	max-width:20em;
 	margin: 1em 0 3em;
 }
-aside.sidebar > section.users > ul > li.user > img{
-	/* width: 50px; */
-	/* border: solid 10px red; */
+.sidebar .user img {
+	width: 50px;
 }
 /* 
 == Footer
