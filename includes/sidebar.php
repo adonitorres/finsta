@@ -22,9 +22,11 @@
     </section>
     
     <?php // get up to 10 categories
-    $result = $DB->prepare( 'SELECT name
-                              FROM categories
-                              LIMIT 10' );
+    $result = $DB->prepare( 'SELECT categories.*, COUNT(*) AS total
+                              FROM posts, categories
+                              WHERE posts.category_id = categories.category_id
+                              GROUP BY posts.category_id
+                              ORDER BY RAND()' );
     $result->execute();
     // check if any rows were found
     if( $result->rowCount() >= 1 ){ ?>
@@ -33,15 +35,15 @@
       <ul>
         <?php
         while( $row = $result->fetch() ){
-          extract($row); ?>
-          <li><?php echo $name; ?></li>
-        <?php } // end while
+          extract($row);
+          echo "<li>$name ($total)</li>";
+        } // end while
     } ?>
       </ul>
     </section>
     
     <?php // get up to 20 tags
-    $result = $DB->prepare( 'SELECT name
+    $result = $DB->prepare( 'SELECT *
                               FROM tags
                               LIMIT 20' );
     $result->execute();
