@@ -7,14 +7,16 @@
 
 
 define('DEBUG_MODE', true);
-define('ROOT_DIR', '' ); // for the server
-define('ROOT_URL', '' );  // for the browser
+define('ROOT_DIR', '' );
+define('ROOT_URL', '' );
 
-// Database Configuration
+//Database Configuration
+
 $database_name = '';
 $database_user = '';
 $database_password = '';
 $host = 'localhost';
+
 
 
 /* -------------------------stop editing------------------------ */
@@ -43,14 +45,14 @@ if(DEBUG_MODE){
 }
 
 /**
- *  Connect to our database
+ * Connect to our Database
  * @link https://phpbestpractices.org/#mysql
  */
-$DB = new PDO( "mysql:host=$host;dbname=$database_name;charset=utf8mb4",
-                  $database_user,
-                  $database_password,
-                  array(
-										PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-										PDO::ATTR_PERSISTENT => false
-									)
+$DB = new PDO(    "mysql:host=$host;dbname=$database_name;charset=utf8mb4",
+                    $database_user,
+                    $database_password,
+                    array(
+                        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+                        PDO::ATTR_PERSISTENT => false
+                    )
                 );
