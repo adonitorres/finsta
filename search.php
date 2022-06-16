@@ -74,6 +74,9 @@ require('includes/header.php');
 				<h3><?php echo $title; ?></h3>
 				<span class="date"><?php echo convert_date( $date ); ?></span>
 			</a>
+			<span class="likes">
+				<?php like_interface( $post_id, $logged_in_user['user_id'] ); ?>
+			</span>
 		</div>
 		<?php }//end while ?>
 	</section><!-- .grid -->

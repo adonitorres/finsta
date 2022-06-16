@@ -46,6 +46,9 @@ require('includes/parse-comment.php');
 
 		<span class="category"><?php echo $name; ?></span>
 		<span class="date"><?php echo time_ago($date); ?></span>
+		<span class="likes">
+					<?php like_interface( $post_id, $logged_in_user['user_id'] ); ?>
+				</span>
 	</div>
 
 	<?php 

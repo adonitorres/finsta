@@ -117,6 +117,18 @@ function clean_string( $dirty ){
     return trim( strip_tags( $dirty ) );
 }
 
+function clean_int( $dirty ){
+  return filter_var( $dirty, FILTER_SANITIZE_NUMBER_INT );
+}
+
+function clean_boolean( $dirty ){
+  if($dirty){
+      return 1; 
+  }else{
+      return 0;
+  }
+}
+
 /**
 * displays sql query information including the computed parameters.
 * Silent unless DEBUG MODE is set to 1 in config.php
@@ -246,7 +258,7 @@ function like_interface( $post_id, $user_id = 0 ){
   ?>
   <span class="like-interface">
     <span class="<?php echo $class; ?>">
-      <span class="heart-button">❤</span>
+      <span class="heart-button" data-postid="<?php echo $post_id; ?>">❤</span>
       <?php echo count_likes( $post_id ); ?>
     </span>
   </span>
