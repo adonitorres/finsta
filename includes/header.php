@@ -1,3 +1,6 @@
+<?php
+//check login keys
+$logged_in_user = check_login(); ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,5 +21,24 @@
 					<input type="search" name="phrase">
 					<input type="submit" value="Search">
 				</form>
+
+				<ul class="menu">
+					<?php if($logged_in_user){
+					?>
+					<li class="user">
+						<a href="">
+							<?php show_profile_pic( $logged_in_user['profile_pic'], $logged_in_user['username'], 30 ); ?>
+							<?php echo $logged_in_user['username']; ?>
+						</a>
+					</li>
+					<li><a href="">New Post</a></li>
+					<li><a href="login.php?action=logout">Log Out</a></li>
+
+					<?php }else{ ?>
+
+					<li><a href="register.php">Sign Up</a></li>
+					<li><a href="login.php">Login In</a></li>
+					<?php } ?>
+				</ul>
 			</nav>
 		</header>	

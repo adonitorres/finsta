@@ -29,7 +29,7 @@ require('includes/header.php');
 					<img src="<?php echo $image; ?>" alt="<?php echo $title; ?>">
 				</a>
 				<span class="author">
-					<img src="<?php echo $profile_pic; ?>" width="50" height="50">
+					<?php show_profile_pic( $profile_pic, $username, 50 ); ?>
 					<?php echo $username; ?>
 				</span>
 
@@ -39,6 +39,9 @@ require('includes/header.php');
 				<span class="category"><?php echo $name; ?></span>
 				<span class="comment-count"><?php echo count_comments( $post_id ); ?></span>
 				<span class="date"><?php echo time_ago($date); ?></span>
+				<span class="likes">
+					<?php like_interface( $post_id, $logged_in_user['user_id'] ); ?>
+				</span>
 			</div>
 
 			<?php 

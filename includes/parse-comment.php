@@ -8,7 +8,7 @@ if( isset( $_POST['did_comment'] ) ){
 	//sanitize everything
 	$body = strip_tags($_POST['body'], ['b', 'i', 'strong', 'em']);
 	//@TODO: replace this with the real logged in user
-	$logged_in_user_id = 1;
+	$logged_in_user_id = $logged_in_user['user_id'];
 
 	//validate - body cannot be blank
 	$valid = true;
