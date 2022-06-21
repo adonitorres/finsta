@@ -1,11 +1,8 @@
 TODO
 ====
 
-
 * make the likes interface not throw a warning when not logged in
 
-* make the user profile template
-* make the default profile pic show up in the sidebar (and everywhere needed)
 
 
 DONE
@@ -27,3 +24,5 @@ DONE
 * add 'likes' table and dummy data
 * display the number of likes on a post
 * make the 'heart' interface
+* make the user profile template
+* make the default profile pic show up in the sidebar (and everywhere needed)

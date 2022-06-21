@@ -26,7 +26,7 @@ $logged_in_user = check_login(); ?>
 					<?php if($logged_in_user){
 					?>
 					<li class="user">
-						<a href="">
+						<a href="profile.php">
 							<?php show_profile_pic( $logged_in_user['profile_pic'], $logged_in_user['username'], 30 ); ?>
 							<?php echo $logged_in_user['username']; ?>
 						</a>

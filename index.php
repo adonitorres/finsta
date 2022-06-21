@@ -29,7 +29,9 @@ require('includes/header.php');
 					<img src="<?php echo $image; ?>" alt="<?php echo $title; ?>">
 				</a>
 				<span class="author">
-					<?php show_profile_pic( $profile_pic, $username, 50 ); ?>
+						<a href="profile.php?user_id=<?php echo $user_id; ?>">
+							<?php show_profile_pic( $profile_pic, $username, 50 ); ?>
+						</a>					
 					<?php echo $username; ?>
 				</span>
 
